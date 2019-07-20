@@ -130,19 +130,20 @@ class LinkedList {
     currentOne = list1.head;
     currentTwo = list2.head;
     if (countOne >= countTwo) {
-      while (currentOne !== null) {
+      while (currentOne.next) {
         let nextOne = currentOne.next;
         let nextTwo = currentTwo.next;
         currentOne.next = currentTwo.value;
         zippedList.append(currentOne);
         currentTwo.next = nextOne;
         zippedList.append(currentTwo);
-        currentOne = nextOne;
-        currentTwo = nextTwo;
-        console.log('zipper: ',zippedList);
-        console.log('One: ',currentOne);
-        console.log('Two: ', currentTwo);
+        console.log('one:',currentOne.value, 'one next:',currentOne.next.value);
+        console.log('two:',currentTwo.value, 'two next: ',currentTwo.next.value);
+        currentOne = nextTwo;
+        currentTwo = nextOne;
+        console.log('HALP:',zippedList);
       }
+      return zippedList;
     } else{
       while (currentOne !== null || currentTwo !== null){
         let nextOne = currentOne.next;
@@ -153,7 +154,20 @@ class LinkedList {
         zippedList.append(currentOne);
         currentOne = nextOne;
         currentTwo = nextTwo;
-      }}
+      } return zippedList;}
+  }
+
+  reversed(){
+    let previous= null;
+    let current = this.head;
+    let next = null;
+    while(current !== null ){
+      next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+    return previous;
   }
 }
 
@@ -175,17 +189,18 @@ let list1 = new LinkedList();
 let list2 = new LinkedList();
 let list3 = new LinkedList();
 
-list2.append(6);
-list1.append(5);
-list2.append(4);
-list1.append(3);
-list2.append(2);
 list1.append(1);
+list1.append(2);
+list1.append(3);
+list1.append(4);
+list1.append(5);
+list1.append(6);
 
-list3.mergeLists(list1, list2);
-listChecker(list3);
+console.log(list1);
+list1.reversed();
+console.log(list1);
+// list3.mergeLists(list1, list2);
 
-// list1.listChecker(list1);
-// list1.fromEnd(2);
+// listChecker(list3);
 
 module.exports = { LinkedList };
