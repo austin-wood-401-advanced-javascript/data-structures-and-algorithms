@@ -8,7 +8,7 @@ Code Challenge #07
   
 #### Tests
 * How do you run tests?
--npm test
+* -npm test
 
 
 #### UML
