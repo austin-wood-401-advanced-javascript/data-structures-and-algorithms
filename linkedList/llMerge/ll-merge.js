@@ -196,11 +196,4 @@ list1.append(4);
 list1.append(5);
 list1.append(6);
 
-console.log(list1);
-list1.reversed();
-console.log(list1);
-// list3.mergeLists(list1, list2);
-
-// listChecker(list3);
-
 module.exports = { LinkedList };
