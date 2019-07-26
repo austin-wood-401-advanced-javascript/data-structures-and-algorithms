@@ -1,6 +1,8 @@
 'use strict';
 
 const stacksAndQueues = require('../stacksAndQueues.js');
+const stack = stacksAndQueues.Stack;
+const queue = stacksAndQueues.Queue;
 
 describe('handles stack methods', () => {
 
@@ -30,28 +32,48 @@ describe('handles stack methods', () => {
 
 describe('handles queue methods', () => {
 
-  it('can enqueue into queues', ()=>{
-
+  it('Can instantiate a queue', () => {
+    let newQ = new queue;
   });
 
-  it('can enqueue multiple queues', ()=> {
-
+  it('Can enqueue things', () => {
+    let newQ = new queue;
+    newQ.enqueue(5);
+    newQ.enqueue(10);
+    newQ.enqueue(15);
+    newQ.enqueue(20);
+    let peeked = newQ.peek();
+    expect(peeked.toStrictEqual(20));
   });
 
-  it('can dequeue', ()=> {
-
+  it('Can dequeue things', () => {
+    let newQ = new stacksAndQueues.Queue();
+    newQ.enqueue(5);
+    newQ.enqueue(10);
+    newQ.enqueue(15);
+    newQ.dequeue();
+    expect(newQ.peek().value.toEqual(10));
   });
 
-  it('can peek', ()=> {
-
+  it('peeks correctly', () => {
+    let newQ = new stacksAndQueues.Queue();
+    newQ.enqueue(5);
+    newQ.enqueue(10);
+    expect(newQ.peek()).toBe(5);
   });
   
   it('can empty a queue with multiple dequeues', ()=> {
-
+    let newQ = new stacksAndQueues.Queue();
+    newQ.enqueue(5);
+    newQ.enqueue(10);
+    newQ.dequeue();
+    newQ.dequeue();
+    expect(newQ.peek().toBe(null));
   });
 
-  it('can make an empty queue', ()=> {
-
+  xit('can make an empty queue', ()=> {
+    let newQ = new stacksAndQueues.Queue();
+    expect(newQ.peek().toBe(null));
   });
 });
 
