@@ -4,6 +4,7 @@ Code Challenge #07
 
 ### Links and Resources
 * [linked_lists](https://github.com/austin-wood-401-advanced-javascript/data-structures-and-algorithms/tree/master/linkedList)
+* [stacks_and_queues](https://github.com/austin-wood-401-advanced-javascript/data-structures-and-algorithms/tree/master/stacksAndQueues)
 * [queue_with_stacks](https://github.com/austin-wood-401-advanced-javascript/data-structures-and-algorithms/tree/master/queueWithStacks)
 * [fifo_shelter](https://github.com/austin-wood-401-advanced-javascript/data-structures-and-algorithms/tree/master/fifoAnimalShelter)
   
