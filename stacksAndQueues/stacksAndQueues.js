@@ -65,6 +65,17 @@ class Queue {
     return this.front;
   }
 
+  //testing function
+  showQueue() {
+    let que = [];
+    let current = this.front;
+    while (current) {
+      que.push(current.value);
+      current = current.previous;
+    }
+    return que;
+  }
+
 }
 
 let myQueue = new Queue;
