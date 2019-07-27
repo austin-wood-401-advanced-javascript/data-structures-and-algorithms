@@ -1,79 +1,73 @@
 'use strict';
 
 const stacksAndQueues = require('../stacksAndQueues.js');
-const stack = stacksAndQueues.Stack;
-const queue = stacksAndQueues.Queue;
+const Stack = stacksAndQueues.Stack;
+const Queue = stacksAndQueues.Queue;
 
 describe('handles stack methods', () => {
 
-  it('can push', () => {
+  it('Can push things on to the stack', () =>{
+    let stack = new Stack ();
+    stack.push(5);
+    stack.push(10);
+    stack.push(15);
+    stack.peek()
+    expect(stack.peek()).toBe(15);
   });
 
-  it('can push multiples', () => {
-
+  it('Can pop things off the stack', () => {
+    let stack = new Stack();
+    stack.push(5);
+    stack.push(10);
+    stack.push(15);
+    stack.peek();
+    expect(stack.peek()).toBe(stack.pop())
   });
 
-  it('can pop', () => {
-
-  });
-
-  it('can empty a stack with multiple pops', () => {
-
-  });
-
-  it('can peek', () => {
-
-  });
-
-  it('can make an empty stack', () =>{
-
+  it('can peek (it already can I used it for testing', () => {
+    let stack = new Stack();
+    stack.push(5);
+    stack.push(10);
+    stack.push(15);
+    stack.peek();
+    expect(stack.peek()).toBe(15)
   });
 });
 
 describe('handles queue methods', () => {
 
-  it('Can instantiate a queue', () => {
-    let newQ = new queue;
+  it('Can create a queue', () => {
+    let newQ = new Queue();
+    expect(newQ.showQueue()).toStrictEqual([]);
   });
 
-  it('Can enqueue things', () => {
-    let newQ = new queue;
-    newQ.enqueue(5);
-    newQ.enqueue(10);
-    newQ.enqueue(15);
-    newQ.enqueue(20);
-    let peeked = newQ.peek();
-    expect(peeked.toStrictEqual(20));
+  it('Can enqueue', () => {
+    let newQ = new Queue();
+    newQ.enqueue(1);
+    newQ.enqueue(2);
+    newQ.enqueue(3);
+    newQ.enqueue(4);
+    expect(newQ.showQueue()).toStrictEqual([1,2,3,4]);
   });
 
-  it('Can dequeue things', () => {
-    let newQ = new stacksAndQueues.Queue();
-    newQ.enqueue(5);
-    newQ.enqueue(10);
-    newQ.enqueue(15);
+  it('Can dequeue', () => {
+    let newQ = new Queue();
+    newQ.enqueue(1);
+    newQ.enqueue(2);
+    newQ.enqueue(3);
+    newQ.enqueue(4);
     newQ.dequeue();
-    expect(newQ.peek().value.toEqual(10));
+    expect(newQ.dequeue()).toStrictEqual(2);
   });
 
-  it('peeks correctly', () => {
-    let newQ = new stacksAndQueues.Queue();
-    newQ.enqueue(5);
-    newQ.enqueue(10);
-    expect(newQ.peek()).toBe(5);
-  });
-  
-  it('can empty a queue with multiple dequeues', ()=> {
-    let newQ = new stacksAndQueues.Queue();
-    newQ.enqueue(5);
-    newQ.enqueue(10);
-    newQ.dequeue();
-    newQ.dequeue();
-    expect(newQ.peek().toBe(null));
+  it('peeks', () => {
+    let newQ = new Queue();
+    newQ.enqueue(1);
+    newQ.enqueue(2);
+    newQ.enqueue(3);
+    newQ.enqueue(4);
+    expect(newQ.peek()).toBe(1);
   });
 
-  xit('can make an empty queue', ()=> {
-    let newQ = new stacksAndQueues.Queue();
-    expect(newQ.peek().toBe(null));
-  });
 });
 
