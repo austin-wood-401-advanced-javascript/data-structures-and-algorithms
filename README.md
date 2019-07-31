@@ -1,5 +1,4 @@
-Code Challenge #07
-
+### Table Of Contents
 ### Author: Austin Wood
 
 ### Links and Resources
