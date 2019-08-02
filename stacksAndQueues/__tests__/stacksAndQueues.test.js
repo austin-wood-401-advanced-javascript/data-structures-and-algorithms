@@ -11,8 +11,15 @@ describe('handles stack methods', () => {
     stack.push(5);
     stack.push(10);
     stack.push(15);
-    stack.peek()
     expect(stack.peek()).toBe(15);
+  });
+
+  it('can succesfully push() multiple nodes onto stack', () => {
+    let testStack = new Stack;
+    testStack.push(1);
+    testStack.push(2);
+    testStack.push(3);
+    expect(testStack.length).toEqual(3);
   });
 
   it('Can pop things off the stack', () => {

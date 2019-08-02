@@ -1,6 +1,6 @@
 'use strict';
 
-let stacksAndQueues = require('../stacksAndQueues/stacksAndQueues.js');
+let stacksAndQueues = require('../../stacksAndQueues/stacksAndQueues.js');
 let myQueue = stacksAndQueues.Queue;
 
 class AnimalShelter{
