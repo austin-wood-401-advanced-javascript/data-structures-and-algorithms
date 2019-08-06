@@ -19,4 +19,4 @@
 
 
 #### UML
-* 
+* [UML](https://github.com/austin-wood-401-advanced-javascript/data-structures-and-algorithms/blob/master/challenges/tree/assets/FizzBuzzTree.jpg)
