@@ -29,8 +29,8 @@ class BinaryTree {
             current = current.left;
           }
           else 'stuff'
-        }};
-      }
+        }}
+    }
     //check if the child is greater
   }
   preorder(){
