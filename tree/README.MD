@@ -19,7 +19,7 @@
 
 
 #### UML
-* [UML](https://github.com/austin-wood-401-advanced-javascript/data-structures-and-algorithms/blob/master/tree/assets/FizzBuzzTree.jpg)
+![UML](https://github.com/austin-wood-401-advanced-javascript/data-structures-and-algorithms/blob/master/tree/assets/FizzBuzzTree.jpg)
 
 # BreadthFirst Traversal
 Write a breath-first traversal method to extend our binaryTree class. 
