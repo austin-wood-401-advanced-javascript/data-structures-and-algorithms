@@ -1,118 +1,117 @@
 'use strict';
 
-import { isWhile } from "@babel/types";
+// const Node = require('../linked-lists/linked-list.js');
+const { Stack, Queue } = require('../stacksAndQueues/stacksAndQueues.js');
 
 class Node {
-  constructor (val) {
-    this.value = val;
+  constructor(value) {
+    this.value = value;
     this.left = null;
     this.right = null;
   }
-
 }
 
 class BinaryTree {
-  constructor( root=null){
-    this.root = root;
-  }
-  //in preOrder you care about the node the minute you see it. 
-  insert(val){
-    //deals with empty trees
-    let newNode = new Node(val);
-    if(this.root ===null){this.root = newNode}
-    else{let current = this.root;
-      //if its a smaller value WORK IN PROGRESS
-      if(typeof val === number){
-
-        while(current.left !== null && current.value > val){
-          if(current.value > val){
-            current = current.left;
-          }
-          else 'stuff'
-        }}
+  constructor(value) {
+    this.root = null;
+    if (value) {
+      this.root = new Node(value);
     }
-    //check if the child is greater
   }
-  preorder(){
-    let results = [];
+
+  preOrder() {
+    let results = new Queue();
 
     let _walk = (node) => {
-      results.push(node.value);
-      if(node.left) {_walk(node.left);};
-      if(node.right) { _walk(node.right);}
+      results.enqueue(node.value);
+      if (node.left) { _walk(node.left); }
 
+      if (node.right) { _walk(node.right); }
     };
-
-    _walk(this.root);
-
-    return results;
-  };
-
-  postOrder(){
-    let results = [];
-
-    let _walk = (node) => {
-      if(node.left) {_walk(node.left);};
-      if(node.right) { _walk(node.right);}
-      results.push(node.value);
-    };
-
     _walk(this.root);
 
     return results;
   }
 
-
-  inOrder(){
-    let results = [];
+  postOrder() {
+    let results = new Queue();
 
     let _walk = (node) => {
-      if(node.left) {_walk(node.left);};
-      results.push(node.value);
-      if(node.right) { _walk(node.right);}
+      if (node.left) { _walk(node.left); }
+
+      if (node.right) { _walk(node.right); }
+
+      results.enqueue(node.value);
 
     };
-
     _walk(this.root);
 
     return results;
   }
 
-  levelOrder(){
-    let results = [];
-    let nodeQueue = [];//use an actual queue
-    nodeQueue.push(this.root);//push the root
-    while(nodeQueue.length){
-      let current = nodeQueue.shift();
-      results.push(current.value);
-      if(current.left) {nodeQueue.push(current.left);}
-      if(current.right) {nodeQueue.push(current.right);}
+  inOrder() {
+    let results = new Queue();
 
+    let _walk = (node) => {
+      if (node.left) { _walk(node.left); }
+
+      results.enqueue(node.value);
+
+      if (node.right) { _walk(node.right); }
+    };
+    _walk(this.root);
+
+    return results;
+  }
+  
+  add(value) {
+    let node = new Node(value);
+    if (!this.root) {
+      this.root = node;
     }
-    return results;
+    if (this.root.value < value) {
+      this.root.right = new Node(value);
+    } else {
+      this.root.left = new Node(value);
+    }
+  }
+
+}
+
+class BinarySearchTree {
+
+  constructor(value) {
+    this.root = null;
+    if (value) {
+      this.root = new Node(value);
+    }
+  }
+
+  add(value) {
+    let node = new Node(value);
+    if (!this.root) {
+      this.root = node;
+    }
+    if (this.root.value < value) {
+      this.root.right = new Node(value);
+    } else {
+      this.root.left = new Node(value);
+    }
+  }
+
+  contains(value, current = this.root) {
+    if (current === null || value === undefined) {
+      return false;
+    }
+    if (current.value === value) {
+      return true;
+    } else if (current.value > value) {
+      return this.contains(value, current.left);
+    } else {
+      return this.contains(value, current.right);
+    }
   }
 }
 
 
-let ten = new Node(10);
-let four = new Node(4);
-let seven = new Node(7);
-let eleven = new Node(11);
-let nine = new Node(9);
-let fifteen = new Node(15);
-let twelve = new Node(12);
-
-
-ten.left = seven;
-ten.right = twelve;
-seven.left = four;
-seven.right = nine;
-twelve.left = eleven;
-twelve.right = fifteen;
-
-let tree = new BinaryTree(ten);
-
-console.log(tree);
-// console.log(tree.preorder());
-console.log(tree.inOrder());
-
+module.exports = { BinaryTree, BinarySearchTree, Node, Queue };
