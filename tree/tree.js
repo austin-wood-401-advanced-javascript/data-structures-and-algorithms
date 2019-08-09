@@ -21,7 +21,7 @@ class BinaryTree {
 
   preOrder() {
     let results = new Queue();
-
+ 
     let _walk = (node) => {
       results.enqueue(node.value);
       if (node.left) { _walk(node.left); }
@@ -65,21 +65,47 @@ class BinaryTree {
   }
   
   add(value) {
-    let node = new Node(value);
-    if (!this.root) {
-      this.root = node;
+    let current = this.root;
+    if (!current) { this.root = new Node(value);}
+    while (current) {
+      if (current.val > value) {
+        if (!current.left) {
+          current.left = new Node(value);
+          break;
+        }
+        else { current = current.left; }
+      }
+
+      if (current.val < value) {
+        if (!current.right) {
+          current.right = new Node(value)
+          break;
+        }
+        else { current = current.right; }
+      }
     }
-    if (this.root.value < value) {
-      this.root.right = new Node(value);
-    } else {
-      this.root.left = new Node(value);
-    }
+    return this;
   }
 
+  breadFirst(){
+    if(!this.root){return null;}
+    let inTree = new Queue();
+    let outTree = new Queue();
+    let current = this.root;
+
+    inTree.enqueue(current);
+
+    while(inTree.front){
+      current = inTree.dequeue();
+      outTree.enqueue(current);
+      if(current.left){inTree.enqueue(current.left);}
+      if(current.right){inTree.enqueue(current.right);}
+      console.log(current.value);
+    }
+  }
 }
 
-class BinarySearchTree {
-
+class BinarySearchTree{
   constructor(value) {
     this.root = null;
     if (value) {
@@ -113,5 +139,22 @@ class BinarySearchTree {
   }
 }
 
+let ten = new Node(10);
+let four = new Node(4);
+let seven = new Node(7);
+let eleven = new Node(11);
+let nine = new Node(9);
+let fifteen = new Node(15);
+let twelve = new Node(12);
+
+
+let tree = new BinaryTree(ten);
+ten.left = seven;
+ten.right = twelve;
+seven.left = four;
+seven.right = nine;
+twelve.left = eleven;
+twelve.right = fifteen;
+tree.breadFirst();
 
 module.exports = { BinaryTree, BinarySearchTree, Node, Queue };
