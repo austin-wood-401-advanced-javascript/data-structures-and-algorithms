@@ -1,6 +1,6 @@
 'use strict';
-let insertsort = require('./insertsort.js');
-const bigArr = require('../sorts/longlist.js');
+let insertsort = require('./insertsort.js.js');
+const bigArr = require('./longlist.js.js');
 
 describe('Insert sort tests', () => {
   it('Sorts a short array', () => {
