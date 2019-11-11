@@ -14,4 +14,4 @@ Avoid utilizing any of the library methods available to your language.
 I took the approach of looping through the keys in the first table, and comparing them to the keys in the second table. If there was a match, I set them to be merged together. This takes extra space and time due to needing to instantiate a new variable to store the newly merged table.
 
 ## Solution
-![UML](challenges/leftJoin/left-join.jpg)
+![UML](left-join.jpg)
