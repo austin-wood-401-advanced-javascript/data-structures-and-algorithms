@@ -1,3 +1,4 @@
+
 # Challenge Summary
 Make a Queue out of stacks
 
@@ -15,4 +16,5 @@ The Stack instances have only push, pop, and peek methods. You should use your o
 we went with a mini towers of hanoi solution
 
 
-![img](./assets/queue_with_stacks.jpg)
+![img](https://raw.githubusercontent.com/austin-wood-401-advanced-javascript/data-structures-and-algorithms/master/challenges/queueWithStacks/assets/queue_with_stacks.jpg)
+
