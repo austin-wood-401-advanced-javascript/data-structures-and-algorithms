@@ -9,4 +9,4 @@ Without utilizing any of the built-in library methods available to your language
 Using a hashmap allows developers to loop over items and quickly store, check and keep track of multiple items for quick solutions. 
 
 ## Solution
-![UML]()
+![UML](./challenge31.jpg)
