@@ -1,0 +1,29 @@
+'use strict';
+
+
+let nums = [1,1,1,3,3,2,2,2]
+
+var majorityElement = function(nums) {
+    let temp;
+    let hash = new Map();
+    let doubleChecker = new Map();
+    let result = [];
+    
+    for(let i = 0; i < nums.length; i++){
+        if(hash.has(nums[i])){
+          temp = hash.get(nums[i]) + 1
+          hash.set(nums[i], temp)  
+        }
+        if( !hash.has(nums[i])){
+          hash.set(nums[i], 1)
+        }
+        if(hash.get(nums[i]) > (nums.length/3) && !doubleChecker.has(nums[i])){
+          doubleChecker.set(nums[i],temp);
+          result.push(nums[i]);
+        }
+    }
+    return result;    
+    
+};
+
+majorityElement(nums);
